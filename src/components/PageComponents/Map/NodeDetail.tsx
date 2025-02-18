@@ -26,13 +26,11 @@ export interface NodeDetailProps {
 
 export const NodeDetail = ({ node }: NodeDetailProps) => {
   const name = node.user?.longName || `!${numberToHexUnpadded(node.num)}`;
-  let hardwareType = Protobuf.Mesh.HardwareModel[
-    node.user?.hwModel ?? 0
-  ]
+  let hardwareType = Protobuf.Mesh.HardwareModel[node.user?.hwModel ?? 0];
   if (hardwareType) {
     hardwareType = hardwareType.replaceAll("_", " ");
   } else {
-    console.warn(`NodeDetail - invalid hardwareType: ${hardwareType}`)
+    console.warn(`NodeDetail - invalid hardwareType: ${hardwareType}`);
     hardwareType = `${hardwareType}`
   }
 
