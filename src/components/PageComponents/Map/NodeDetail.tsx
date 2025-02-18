@@ -27,13 +27,7 @@ export interface NodeDetailProps {
 export const NodeDetail = ({ node }: NodeDetailProps) => {
   const name = node.user?.longName || `!${numberToHexUnpadded(node.num)}`;
   const hwModel = node.user?.hwModel ?? 0;
-  let hardwareType = Protobuf.Mesh.HardwareModel[hwModel];
-  if (hardwareType) {
-    hardwareType = hardwareType.replaceAll("_", " ");
-  } else {
-    console.warn(`NodeDetail - invalid hardwareType: ${hwModel}`);
-    hardwareType = `${hwModel}`;
-  }
+  const hardwareType = Protobuf.Mesh.HardwareModel[hwModel]?.replaceAll("_", " ") ?? `${hwModel}`;
 
   return (
     <div className="dark:text-black p-1">
