@@ -31,7 +31,7 @@ export const NodeDetail = ({ node }: NodeDetailProps) => {
     hardwareType = hardwareType.replaceAll("_", " ");
   } else {
     console.warn(`NodeDetail - invalid hardwareType: ${hardwareType}`);
-    hardwareType = `${hardwareType}`
+    hardwareType = `${hardwareType}`;
   }
 
   return (
